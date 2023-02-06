@@ -30,6 +30,32 @@ class Hash
   # This returns 0 because rspec will break if it returns nil
   # Make sure to implement an actual Hash#hash method
   def hash
+    # key_hashes = 0
+    # value_hashes = 0
+    # self.each do |k,v|
+    #   # case type_of = k.class
+    #   # when Array
+    #   #   k.hash
+    #   key_hashes += k.hash
+    #   value_hashes += v.hash
+    # end
+    # return key_hashes / (value_hashes+1)
+
+    key_hashes = 0
+    value_hashes = 0
+    self.each do |k,v|
+      # case type_of = k.class
+      # when Array
+      #   key_hashes += k.hash
+
+      # when String
+      #   key_hashes += k.hash
+      # when Integer
+        key_hashes += k.hash
+
+      value_hashes += v.hash
+    end
+    return (key_hashes +value_hashes+1) / (value_hashes+1)
     
   end
 end
